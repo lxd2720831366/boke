@@ -12,8 +12,8 @@
 <body>
 	<div class="container">
 		<h1 class="text-info text-center">{{ $title }}</h1>
-		<a href="/admin/user" class="btn btn-info">文章列表</a>
-		<a href="/admin/user/create" class="btn btn-success">文章添加</a>
+		<a href="/admin/article" class="btn btn-info">文章列表</a>
+		<a href="/admin/article/create" class="btn btn-success">文章添加</a>
 		<hr>
 		<!-- 显示提示消息 -->
 		@if(session('success'))

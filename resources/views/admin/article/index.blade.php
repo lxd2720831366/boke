@@ -1,15 +1,15 @@
-@extends('admin.layout.layout')
+@extends('admin.common.common')
 
 <!--添加内容-->
 @section('container')
-	<form action="/admin/user" method="get" class="form-inline" style="margin-bottom: 3px;">
+	<form action="/admin/article" method="get" class="form-inline" style="margin-bottom: 3px;">
 	  <div class="form-group">
 	    <label for="title">标题</label>
-	    <input type="text" value="{{ $request['title'] or ''}}" class="form-control" id="title" name="title" placeholder="按文章的标题搜索">
+	    <input type="text" value="{{ $request['title'] or ''}}" style="height:20px;" class="form-control" id="title" name="title" placeholder="按文章的标题搜索">
 	  </div>
 	  <div class="form-group">
 	    <label for="auth">作者</label>
-	    <input type="text" class="form-control" value="{{ $request['auth'] or '' }}" id="auth" name="auth" placeholder="按作者的名称搜索">
+	    <input type="text" class="form-control" style="height:20px;" value="{{ $request['auth'] or '' }}" id="auth" name="auth" placeholder="按作者的名称搜索">
 	  </div>
 	  <button type="submit" class="btn btn-success">搜索</button>
 	</form>
@@ -44,9 +44,9 @@
 			<td>{{$v->update_time}}</td>
 			<td>{{$v->status == 1 ? '激活' : '未激活'}}</td>
 			<td>
-				<a href="/admin/user/{{$v->id}}/edit"
+				<a href="/admin/article/{{$v->id}}/edit"
 				 class="btn btn-warning">修改</a>
-				 <form action="/admin/user/{{$v->id}}" method="post" style="display: inline-block;">
+				 <form action="/admin/article/{{$v->id}}" method="post" style="display: inline-block;">
 					{{ csrf_field() }}
 					{{ method_field('DELETE') }}
 				<input type="submit" onclick="return confirm('确定要删除吗?')" value="删除" class="btn btn-danger" name="">
@@ -82,7 +82,7 @@
 			        }
 				});
 				// 执行删除
-				$.post('/admin/user/deleteall',{'ids':ids},function(msg){
+				$.post('/admin/article/deleteall',{'ids':ids},function(msg){
 
 					if(msg == 'success'){
 						//删除选中的元素

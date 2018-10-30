@@ -14,40 +14,15 @@
 // 作用：当前laravel所有的http协议，请求必须经过文件
 Route::get('/', function () {
 	// var_dump(date('Y-m-d H:i:s',time()));
-
-	// var_dump(Config::get('app.url'));
-	// dump(Config::get('app.cipher'));
-	// dump(Config::get('database.migrations'));
-	// Config::set('app.title','LAMP209官网');
-	// dump(Config::get('app.title'));
-	// dd(Config::get('app.timezone'));	
+get('app.timezone'));	
 	// 加载模版
     return view('welcome');
 });
 
-// 带参数的路由 和 参数限定
-// Route::get('/update/{id}/{name}',function($id,$name){
-// 	echo 'update----'.$id.'-----'.$name;
-// })->where('id','[0-9]+')->where('name','[a-z]+');
-
-// Route::get('/red',function(){
-// 	// return redirect('admin/user/delete/20'); //跳转
-// 	// 使用路由的别名
-// 	// $url =  route('aud',['id'=>200]); //使用别名进行创建url地址
-// 	$url = url('admin/user/delete',['id'=>'100']);	//使用字符串进行创建url地址
-// 	echo $url;
-// 	// return redirect($url);
-// });
-
-// 带别名的路由
-// Route::get('/admin/user/delete/{id}',['as'=>'aud','uses'=>function($id){
-// 	echo '删除后台用户：'.$id;
-// }]);
-
-// Route::post();
 
 
-// //表格显示
+
+// 表格显示 用户表格
 // Route::get('/admin/user/index','UserController@index');
 
 // //表单添加
@@ -64,10 +39,83 @@ Route::get('/', function () {
 Route::get('/show',function(){
 	return view('show');
 })->middleware('login');
-
+/*------------------------------------------------------------------------------------------
+-----------------------------------后台开始-------------------------------------------------
+------------------------------------------------------------------------------------------*/
+//后台公共页面
+Route::get('/common',function(){
+	return view('admin.common.common');
+});
 //登录页面
 Route::controller('login','LoginController');
-
 //文章
-Route::resource('/admin/user','Admin\UserController');
-Route::post('/admin/user/deleteall','Admin\UserController@deleteall');
+Route::resource('/admin/article','Admin\ArticleController');
+Route::post('/admin/article/deleteall','Admin\ArticleController@deleteall');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------------------------------------------------------------------------
+-----------------------------------后台结束-------------------------------------------------
+------------------------------------------------------------------------------------------*/
+
+
+/*==========================================================================================
+===================================前台开始=================================================
+==========================================================================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+/*==========================================================================================
+===================================前台结束=================================================
+==========================================================================================*/
+
+

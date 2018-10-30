@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>{{Config::get('app.title')}}</title>
-
+        <link rel="icon" href="/picture/logo.ico">
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
         <style>

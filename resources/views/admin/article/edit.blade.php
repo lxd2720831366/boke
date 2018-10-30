@@ -1,7 +1,7 @@
-@extends('admin.layout.layout')
+@extends('admin.common.common')
 
 @section('container')
-	<form action="/admin/user/{{$data->id}}" method="post">
+	<form action="/admin/article/{{$data->id}}" method="post">
 			{{ csrf_field() }}
 			{{ method_field('PUT') }}
 		  <div class="form-group">

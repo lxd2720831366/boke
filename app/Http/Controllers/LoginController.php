@@ -27,15 +27,16 @@ class LoginController extends Controller
      */
     public function postLoging(Request $request)
     {
+
         $uname = $request ->input('uname');
         $jg = DB::table('users')->where('uname','=',$uname)->first();
         session(['user'=>$jg]);
         // session(['user'=>'']);
-        dump(session('user')['uname']);
+        // dump(session('user')->uname);exit;
         if(!empty(session('user'))){
             return redirect('/show');
         }else{
-            return redir('login/login');
+            return redirect('login/login');
         }
     }
 

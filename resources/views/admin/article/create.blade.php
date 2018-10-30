@@ -1,7 +1,7 @@
-@extends('admin.layout.layout')
+@extends('admin.common.common')
 
 @section('container')
-	<form action="/admin/user" method="post">
+	<form action="/admin/article" method="post">
 			{{ csrf_field() }}
 		  <div class="form-group">
 		    <label for="title">标题</label>
