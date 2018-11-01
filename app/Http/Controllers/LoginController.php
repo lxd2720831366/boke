@@ -27,8 +27,9 @@ class LoginController extends Controller
      */
     public function postLoging(Request $request)
     {
-
+        
         $uname = $request ->input('uname');
+        
         $jg = DB::table('users')->where('uname','=',$uname)->first();
         session(['user'=>$jg]);
         // session(['user'=>'']);
